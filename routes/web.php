@@ -20,4 +20,6 @@ Auth::routes();
 //For disabling registration
 //Auth::routes(['register' => false]);
 
+Route::resource('listings', 'ListingsController');
+
 Route::get('/dashboard', 'DashboardController@index');
