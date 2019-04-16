@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 //For disabling registration
@@ -22,4 +18,6 @@ Auth::routes();
 
 Route::resource('listings', 'ListingsController');
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+
+Route::get('/', 'ListingsController@index');
