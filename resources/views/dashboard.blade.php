@@ -18,14 +18,21 @@
                     <table class=" table table-striped">
                       <tr>
                         <th>Company</th>
-                        <th></th>
-                        <th></th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                       </tr>
                       @foreach($listings as $listing)
                         <tr>
                           <td>{{$listing->name}}</td>
                           <td><a href="/listings/{{$listing->id}}/edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
-                          <td> <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a></td>
+                          <td>
+                            <form action="{{route('listings.destroy', $listing->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+
+                          </td>
                         </tr>
                       @endforeach
                     </table>
