@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
       <div class="col-md-8">
           <div class="card">
-              <div class="card-header">Dashboard <span class="float-right"><a href="/listings/create" class="btn btn-success btn-sm"><i class="fas fa-plus-square"></i></a></span></div>
+              <div class="card-header">Dashboard <a href="/listings/create" class="btn btn-success btn-sm float-right"><i class="fas fa-plus-square"></i></a></div>
 
               <div class="card-body">
                   @if (session('status'))
@@ -24,6 +24,8 @@
                       @foreach($listings as $listing)
                         <tr>
                           <td>{{$listing->name}}</td>
+                          <td><a href="/listings/{{$listing->id}}/edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                          <td> <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                       @endforeach
                     </table>
